@@ -1,4 +1,3 @@
-
 auto();
 
 console.show();
@@ -27,6 +26,8 @@ console.log("进入活动界面成功");
 text("赚喵币").findOne().click();
 sleep(postpone * 2);
 console.log("开始执行任务");
+
+/*
 while (true) {
     var t=new Date();
     var golook = text("去浏览").findOnce();
@@ -72,6 +73,46 @@ while (true) {
     } else
         break;
 }
+
+*/
+function mission(s){
+    var start=0;
+    if(s=="去完成") start=1;
+    while (true) {
+        var t = new Date();
+        var golook = text(s).findOnce(start);
+        if (golook) {
+            golook.click();
+            var x = random(1, 5);
+            while (x--) {
+                sleep(5000 + t.getSeconds() * 10);
+                swipe(700 + t.getSeconds(),
+                    2000 - t.getSeconds() * 10,
+                    200 + t.getMilliseconds(),
+                    700 + t.getMilliseconds(),
+                    1000);
+            }
+            if (text("50000").findOnce()) {
+                back();
+                continue;
+            }
+            sleep(15000 + t.getSeconds() * 10);
+            back();
+            sleep(1000);
+        } else
+            break;
+    }
+
+}
+
+mission("去浏览");
+console.log("浏览完成");
+mission("去完成");
+console.log("看看完成");
+mission("去逛逛");
+console.log("逛逛完成");
+
+
 console.log("浏览任务已经完成");
 indexInParent(0).text("关闭").findOne().click();
 sleep(postpone);
@@ -98,15 +139,15 @@ while (true) {
 }
 console.log("执行完毕，开始拍猫");
 var num = rawInput("输入拍猫次数（中途不可退，次数别太多）,输入-1退出");
-while(true) {
-       if (num<0) {
+while (true) {
+    if (num < 0) {
         break;
     }
     while (num--) {
 
-        var cat=text("我的猫，点击撸猫").findOne();
-        click(cat.bounds().centerX()+random(1,5)*5,
-        cat.bounds().centerY()+random(1,5)*5);
+        var cat = text("我的猫，点击撸猫").findOne();
+        click(cat.bounds().centerX() + random(1, 5) * 5,
+            cat.bounds().centerY() + random(1, 5) * 5);
         sleep(200);
     }
 }
