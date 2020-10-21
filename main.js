@@ -33,7 +33,7 @@ while (true) {
         var x=random(1,5);
         while(x--){
         sleep(5000+t.getSeconds()*10);
-        swipe(700+t.getSeconds,
+        swipe(700+t.getSeconds(),
         2000-t.getSeconds()*10,
         200+t.getMilliseconds(),
         700+t.getMilliseconds(),
@@ -54,7 +54,7 @@ while (true) {
         var x=random(1,5);
         while(x--){
         sleep(5000+t.getSeconds()*10);
-        swipe(700+t.getSeconds,
+        swipe(700+t.getSeconds(),
         2000-t.getSeconds()*10,
         200+t.getMilliseconds(),
         700+t.getMilliseconds(),
