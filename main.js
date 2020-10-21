@@ -1,14 +1,13 @@
+
 auto();
+
 console.show();
 var postpone = rawInput("全局延迟设定(建议1-5，越低越快，越高越稳定但慢");
 postpone = postpone * 1000;
 launch("com.taobao.taobao");
 sleep(5000);
-/*
-setScreenMetrics(device.width, device.height);
 
-click(685,210);
-*/
+console.log("准备进入活动界面，若未出现进入界面成功的提示，请开高延迟");
 desc("搜索").findOne().click();
 sleep(postpone);
 id("searchEdit").findOne().setText("双十一");
@@ -22,6 +21,9 @@ click(enter.bounds().centerX(),
 sleep(postpone * 2);
 text("活动链接").findOne().click();
 sleep(postpone * 2);
+
+console.log("进入活动界面成功");
+
 text("赚喵币").findOne().click();
 sleep(postpone * 2);
 
@@ -104,3 +106,4 @@ while (num--) {
     cat.bounds().centerY()+random(1,5)*5);
     sleep(200);
 }
+console.log("完活儿");
