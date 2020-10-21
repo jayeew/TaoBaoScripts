@@ -7,4 +7,4 @@
 * 2.脚本导入auto.js执行，按提示输入数据
 ## 有问题直接Issues
 
-* Attention结构图<br>![](https://github.com/jiayiwang5/Chinese-ChatBot/blob/master/image/image3.png)
+* 淘宝示例图<br>![](https://github.com/jiayiwang5/TaoBaoScripts/blob/main/image/photo.jpg)
