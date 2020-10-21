@@ -3,9 +3,17 @@ auto();
 console.show();
 var postpone = rawInput("全局延迟设定(建议1-5，越低越快，越高越稳定但慢");
 postpone = postpone * 1000;
-launch("com.taobao.taobao");
-sleep(5000);
+//launch("com.taobao.taobao");
 
+console.log("准备进入活动界面，若未出现进入界面成功的提示，请开高延迟");
+
+app.startActivity({
+    action: "VIEW",
+    data: "taobao://pages.tmall.com/wow/z/hdwk/act-20201111/index"
+})
+
+sleep(5000+postpone);
+/*
 console.log("准备进入活动界面，若未出现进入界面成功的提示，请开高延迟");
 desc("搜索").findOne().click();
 sleep(postpone);
@@ -20,7 +28,7 @@ click(enter.bounds().centerX(),
 sleep(postpone * 2);
 text("活动链接").findOne().click();
 sleep(postpone * 2);
-
+*/
 console.log("进入活动界面成功");
 
 text("赚喵币").findOne().click();
