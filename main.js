@@ -98,7 +98,7 @@ function mission(s){
             }
             sleep(15000 + t.getSeconds() * 10);
             back();
-            sleep(1000);
+            sleep(1600);
         } else
             break;
     }
