@@ -39,9 +39,13 @@ while (true) {
     var golook = text("去完成").findOnce(1);
     if (golook) {
         golook.click();
-        sleep(23000);
+        sleep(10000);
+        if(text("50000").findOnce()){
+            back();
+            continue;}
+        sleep(13000);
         back();
-        sleep(500);
+        sleep(1000);
     } else
         break;
 }
@@ -61,6 +65,11 @@ while (true) {
     var non_enough=text("哎哟，喵币不足啦").findOnce();
     if(non_enough){
         indexInParent(3).text("关闭").findOne().click();
+        break;
+        }
+    var decoration=text("领取成就勋章").findOnce();
+    if(decoration){
+        indexInParent(4).text("关闭").findOne().click();
         break;
         }
 }
