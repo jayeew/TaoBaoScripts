@@ -75,9 +75,9 @@ while (true) {
 }
 
 */
-function mission(s){
-    var start=0;
-    if(s=="去完成") start=1;
+function mission(s) {
+    var start = 0;
+    if (s == "去完成") start = 1;
     while (true) {
         var t = new Date();
         var golook = text(s).findOnce(start);
@@ -98,7 +98,7 @@ function mission(s){
             }
             sleep(15000 + t.getSeconds() * 10);
             back();
-            sleep(1000);
+            sleep(postpone);
         } else
             break;
     }
@@ -124,7 +124,7 @@ while (true) {
     var receive = textContains("开心收下").findOnce();
     if (receive) {
         receive.click();
-        //sleep(postpone);
+        continue;
     }
     var non_enough = text("哎哟，喵币不足啦").findOnce();
     if (non_enough) {
@@ -139,16 +139,10 @@ while (true) {
 }
 console.log("执行完毕，开始拍猫");
 var num = rawInput("输入拍猫次数（中途不可退，次数别太多）,输入-1退出");
-while (true) {
-    if (num < 0) {
-        break;
-    }
-    while (num--) {
-
-        var cat = text("我的猫，点击撸猫").findOne();
-        click(cat.bounds().centerX() + random(1, 5) * 5,
-            cat.bounds().centerY() + random(1, 5) * 5);
-        sleep(200);
-    }
+while (num--) {
+    var cat = text("我的猫，点击撸猫").findOne();
+    click(cat.bounds().centerX() + random(1, 5) * 5,
+        cat.bounds().centerY() + random(1, 5) * 5);
+    sleep(200);
 }
 console.log("完活儿");
