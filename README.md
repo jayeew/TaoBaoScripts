@@ -9,4 +9,4 @@
 ## 计划
 * 加各种随机操作，避免黑号
 
-* 淘宝示例图<br>![](https://github.com/jiayiwang5/TaoBaoScripts/blob/main/image/photo.jpg)
+## 淘宝示例图<br>![](https://github.com/jiayiwang5/TaoBaoScripts/blob/main/image/photo.jpg)
