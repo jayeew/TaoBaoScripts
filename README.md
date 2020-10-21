@@ -1,9 +1,10 @@
-# TaoBaoScripts
-淘宝双十一任务脚本，auto.js适用安卓
+# TaoBaoScripts/淘宝双十一自动脚本
+## 需要环境
+* 安卓设备（无需root），开启无障碍服务
+* Auto.js软件，测试版和pro版均可
+## 需要环境
+* 1.保持淘宝未启动或启动后呆在app首页
+* 2.脚本导入auto.js执行，按提示输入数据
+## 有问题直接Issues
 
-1.淘宝未运行状态
-2.开启脚本运行
-
-
-有问题issue，自用为主，佛性维护
-复制这段内容后打开百度网盘App，操作更方便哦。 链接:https://pan.baidu.com/s/1ljy7GD8AgLY1CSO1lc-KDg 提取码:kn6h
+* Attention结构图<br>![](https://github.com/jiayiwang5/Chinese-ChatBot/blob/master/image/image3.png)
