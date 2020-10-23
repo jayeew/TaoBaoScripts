@@ -38,10 +38,6 @@ function mission(s) {
                     700 + t.getMilliseconds(),
                     1000);
             }
-            if (text("50000").findOnce()) {
-                back();
-                continue;
-            }
             sleep(15000 + t.getSeconds() * 10);
             back();
             sleep(postpone);
@@ -94,8 +90,8 @@ console.log("执行完毕，开始拍猫");
 var num = rawInput("输入拍猫次数（中途不可退，次数别太多）,输入-1退出");
 while (num--) {
     var cat = text("我的猫，点击撸猫").findOne();
-    click(cat.bounds().centerX() + random(1, 5) * 5,
-        cat.bounds().centerY() + random(1, 5) * 5);
-    sleep(200);
+    click(cat.bounds().centerX() + random(-10, 10) * 10,
+        cat.bounds().centerY() + random(-10, 10) * 10);
+    sleep(200+random(-100,100));
 }
 console.log("完活儿");
