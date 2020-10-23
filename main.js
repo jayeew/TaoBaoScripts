@@ -12,7 +12,7 @@ app.startActivity({
     data: "taobao://pages.tmall.com/wow/z/hdwk/act-20201111/index"
 })
 
-sleep(5000+postpone);
+sleep(5000 + postpone);
 
 console.log("进入活动界面成功");
 
@@ -23,7 +23,7 @@ console.log("开始执行任务");
 
 function mission(s) {
     var start = 0;
-    if (s == "去完成") start = 2;
+    if (s == "去完成") start = 1;
     while (true) {
         var t = new Date();
         var golook = text(s).findOnce(start);
@@ -31,12 +31,17 @@ function mission(s) {
             golook.click();
             var x = random(1, 5);
             while (x--) {
+                t = new Date();
                 sleep(5000 + t.getSeconds() * 10);
                 swipe(700 + t.getSeconds(),
                     2000 - t.getSeconds() * 10,
                     200 + t.getMilliseconds(),
                     700 + t.getMilliseconds(),
                     1000);
+                if (text("50000").findOnce()) {
+                    start += 1;
+                    break;
+                }
             }
             sleep(15000 + t.getSeconds() * 10);
             back();
@@ -65,6 +70,7 @@ var merge = textContains("喂猫升级").findOne();
 while (true) {
     sleep(postpone);
     merge.click();
+    sleep(postpone);
     var receive = textContains("开心收下").findOnce();
     if (receive) {
         receive.click();
@@ -80,11 +86,11 @@ while (true) {
         indexInParent(4).text("关闭").findOne().click();
         break;
     }
-    var close=text("关闭").depth(14).findOnce();
-    if(close) {
+    var close = text("关闭").depth(14).findOnce();
+    if (close) {
         close.click();
         break;
-        }
+    }
 }
 console.log("执行完毕，开始拍猫");
 var num = rawInput("输入拍猫次数（中途不可退，次数别太多）,输入-1退出");
@@ -92,6 +98,6 @@ while (num--) {
     var cat = text("我的猫，点击撸猫").findOne();
     click(cat.bounds().centerX() + random(-10, 10) * 10,
         cat.bounds().centerY() + random(-10, 10) * 10);
-    sleep(200+random(-100,100));
+    sleep(200 + random(-100, 100));
 }
 console.log("完活儿");
