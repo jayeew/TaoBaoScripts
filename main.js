@@ -1,4 +1,5 @@
-auto();
+auto.waitFor();
+auto.setMode("normal");
 
 console.show();
 var postpone = rawInput("全局延迟设定(建议1-5，越低越快，越高越稳定但慢");
@@ -22,7 +23,7 @@ console.log("开始执行任务");
 
 function mission(s) {
     var start = 0;
-    if (s == "去完成") start = 1;
+    if (s == "去完成") start = 2;
     while (true) {
         var t = new Date();
         var golook = text(s).findOnce(start);
@@ -66,8 +67,8 @@ sleep(postpone);
 console.log("开始升级");
 var merge = textContains("喂猫升级").findOne();
 while (true) {
-    merge.click();
     sleep(postpone);
+    merge.click();
     var receive = textContains("开心收下").findOnce();
     if (receive) {
         receive.click();
@@ -83,6 +84,11 @@ while (true) {
         indexInParent(4).text("关闭").findOne().click();
         break;
     }
+    var close=text("关闭").depth(14).findOnce();
+    if(close) {
+        close.click();
+        break;
+        }
 }
 console.log("执行完毕，开始拍猫");
 var num = rawInput("输入拍猫次数（中途不可退，次数别太多）,输入-1退出");
