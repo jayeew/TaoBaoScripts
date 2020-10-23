@@ -3,6 +3,7 @@
 # TaoBaoScripts/淘宝双十一自动脚本
 
 ## 注意
+* [淘宝旧版本下载](https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=taobao)
 * 我在安装9.5版本淘宝过程中，发现新版淘宝不能完全卸载，导致不能安装旧版，请连接电脑使用adb uninstall com.taobao.taobao完全卸载
 * 部分oppo,小米，华为机型，系统和auto.js软件干架，猜测可能权限不够，需要悬浮窗和无障碍权限
 * 模拟器跑有风险，自己斟酌，我不建议
