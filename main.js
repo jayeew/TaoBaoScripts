@@ -4,22 +4,38 @@ auto.setMode("normal");
 console.show();
 var postpone = rawInput("全局延迟设定(建议1-5，越低越快，越高越稳定但慢");
 postpone = postpone * 1000;
-
 console.log("准备进入活动界面，若未出现进入界面成功的提示，请开高延迟");
 
-app.startActivity({
-    action: "VIEW",
-    data: "taobao://pages.tmall.com/wow/z/hdwk/act-20201111/index"
-})
 
-sleep(5000 + postpone);
+function startApp(url) {
+    app.startActivity({
+        action: "VIEW",
+        data: url
+    })
+    sleep(5000);
+    work(url.substring(0, 6));
+    sleep(postpone);
+    levelUp();
+    sleep(postpone);
+    fuckCat();
+}
 
-console.log("进入活动界面成功");
-
-text("赚喵币").findOne().click();
-sleep(postpone * 2);
-console.log("开始执行任务");
-
+function work(s) {
+    console.log("进入活动界面成功");
+    text("赚喵币").findOne().click();
+    sleep(postpone * 2);
+    console.log("开始执行任务");
+    //taobao
+    if (s == "taobao") {
+        mission("去浏览");
+        mission("去完成");
+        mission("去逛逛");
+        mission("去搜索");
+    }
+    //alipay
+    else
+        mission("逛一逛");
+}
 
 function mission(s) {
     var start = 0;
@@ -29,7 +45,8 @@ function mission(s) {
         var golook = text(s).findOnce(start);
         if (golook) {
             golook.click();
-            var x = random(1, 5);
+            sleep(postpone * 2);
+            var x = random(3, 4);
             while (x--) {
                 t = new Date();
                 sleep(5000 + t.getSeconds() * 10);
@@ -43,61 +60,46 @@ function mission(s) {
                     break;
                 }
             }
-            sleep(15000 + t.getSeconds() * 10);
             back();
             sleep(postpone);
         } else
             break;
     }
-
+    console.log("任务%s完成。", s);
 }
 
-mission("去浏览");
-console.log("浏览完成");
-mission("去完成");
-console.log("看看完成");
-mission("去逛逛");
-console.log("逛逛完成");
-mission("去搜索");
-console.log("搜索完成");
-
-
-console.log("浏览任务已经完成");
-indexInParent(0).text("关闭").findOne().click();
-sleep(postpone);
-console.log("开始升级");
-var merge = textContains("喂猫升级").findOne();
-while (true) {
+function levelUp() {
+    textContains("关闭").findOne().click();
     sleep(postpone);
-    merge.click();
-    sleep(postpone);
-    var receive = textContains("开心收下").findOnce();
-    if (receive) {
-        receive.click();
-        continue;
-    }
-    var non_enough = text("哎哟，喵币不足啦").findOnce();
-    if (non_enough) {
-        indexInParent(3).text("关闭").findOne().click();
-        break;
-    }
-    var decoration = text("领取成就勋章").findOnce();
-    if (decoration) {
-        indexInParent(4).text("关闭").findOne().click();
-        break;
-    }
-    var close = text("关闭").depth(14).findOnce();
-    if (close) {
-        close.click();
-        break;
+    console.log("开始升级");
+    var merge = textContains("喂猫升级").findOne();
+    while (true) {
+        merge.click();
+        sleep(postpone);
+        var close = textContains("关闭").findOnce();
+        if (close) {
+            close.click();
+        }
+        sleep(postpone / 2);
+        var coin = textContains("我的喵币").findOnce().text().substr(5);
+        if (coin < "60000") break;
     }
 }
-console.log("执行完毕，开始拍猫");
-var num = rawInput("输入拍猫次数（中途不可退，次数别太多）,输入-1退出");
-while (num--) {
-    var cat = text("我的猫，点击撸猫").findOne();
-    click(cat.bounds().centerX() + random(-10, 10) * 10,
-        cat.bounds().centerY() + random(-10, 10) * 10);
-    sleep(200 + random(-100, 100));
+
+function fuckCat() {
+    console.log("开始拍猫");
+    var num = rawInput("输入拍猫次数（中途不可退，次数别太多）,输入-1退出");
+    while (num--) {
+        var cat = text("我的猫，点击撸猫").findOne();
+        click(cat.bounds().centerX() + random(-10, 10) * 10,
+            cat.bounds().centerY() + random(-10, 10) * 10);
+        sleep(200 + random(-100, 100));
+    }
 }
+
+startApp("taobao://pages.tmall.com/wow/z/hdwk/act-20201111/index");
+toast("切换到支付宝");
+sleep(postpone * 3);
+startApp("alipays://platformapi/startapp?appId=68687502");
 console.log("完活儿");
+device.vibrate(1000);
