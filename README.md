@@ -4,6 +4,7 @@
 
 ## 注意
 * 应需求，上传京东自用脚本（未做大范围适配），使用方法见js文件内
+* 顺便上传了自用的拼多多秒杀脚本，本人已经成功秒杀多次，玩这个活动的可以看看，不玩算了
 * [淘宝旧版本下载](https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=taobao)
 * 我在安装9.5版本淘宝过程中，发现新版淘宝不能完全卸载，导致不能安装旧版，请连接电脑使用adb uninstall com.taobao.taobao完全卸载
 * 部分oppo,小米，华为机型，系统和auto.js软件干架，猜测可能权限不够，需要悬浮窗和无障碍权限
