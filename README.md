@@ -21,3 +21,4 @@
 《21.0复制全部 http://JXNQvWh8Ql0Omn要想生活过得去，这份现金必须领！；直接提现到微信零钱！鍑zんí%n8IMB0QJqb@这段話后去最新版【京⌒東】》
 
 ## 淘宝示例图<br>![](https://github.com/jiayiwang5/TaoBaoScripts/blob/main/image/photo.jpg)
+## 淘宝示例图<br>![](https://github.com/jiayiwang5/TaoBaoScripts/blob/main/image/photo1.jpg)
