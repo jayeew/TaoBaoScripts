@@ -39,7 +39,7 @@ function work(s) {
 
 function mission(s) {
     var start = 0;
-    if (s == "去完成") start = 1;
+    if (s == "去完成") start += 1;
     while (true) {
         var t = new Date();
         var golook = text(s).findOnce(start);
