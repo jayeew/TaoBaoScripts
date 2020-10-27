@@ -10,7 +10,7 @@
 */
 auto.waitFor();
 auto.setMode("fast");
-
+setScreenMetrics(device.width,device.height);
 console.show();
 
 var h = 0,
